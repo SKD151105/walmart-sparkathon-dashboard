@@ -1,0 +1,28 @@
+walmart-sparkathon-dashboard/
+│
+├── public/                      # All frontend files go here
+│   ├── css/
+│   │   └── styles.css           # Your custom CSS styles
+│   ├── js/
+│   │   └── dashboard.js         # JavaScript for frontend logic + fetch
+│   ├── index.html               # Main dashboard page (single page)
+│   └── assets/
+│       └── logo.png             # Any images or logos used
+│
+├── routes/
+│   └── api.js                   # API routes (e.g. /api/predict, /api/inventory)
+│
+├── data/
+│   ├── sample_dataset.csv       # Retail dataset (for testing)
+│   └── holidays.json            # Manually added holiday/festival data
+│
+├── utils/
+│   └── ml_model_runner.js       # ML model trigger or data preprocessor
+│
+├── views/                       # (Optional) if you want server-rendered pages
+│   └── error.ejs                # Basic error template
+│
+├── .gitignore
+├── app.js                       # Main backend server (Express entry point)
+├── package.json
+├── README.md
