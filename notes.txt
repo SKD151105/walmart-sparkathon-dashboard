@@ -35,3 +35,12 @@ walmart-sparkathon-dashboard/
 ├── .gitignore                     # Ignore node_modules, etc.
 ├── package.json                   # Project metadata and dependencies
 └── README.md                      # Project summary and setup instructions
+
+
+LANDING PAGE:
+
+1. Value Proposition (Features etc.) --> FAQs
+2. Call-to-Action
+3. Maintain Attention (Keep it Focussed) --> No navigation
+4. Visuals (Related to Purpose of Website)
+5. Social Proofs (like Testimonials, Numbers, etc.)
