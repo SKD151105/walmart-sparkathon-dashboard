@@ -1,13 +1,107 @@
 <!-- Landing page (project intro, CTA to login) -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SmartRetail | AI-Powered Inventory Optimization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/landing_css.css">
 </head>
+
 <body>
-    
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">SmartRetail</div>
+            <div class="navbar-links">
+                <button id="signup" class="nav-btn" onclick="location.href='signup.html'">Sign Up</button>
+                <button id="login" class="nav-btn" onclick="location.href='login.html'">Login</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-overlay">
+            <h1>Smarter retail decisions<br> powered by
+                <span class="typing-container">
+                    <span class="typing-text">predictive insights</span>
+                </span>
+            </h1>
+
+            <p>
+                SmartRetail gives you real-time inventory forecasts, event-aware demand<br> planning, and actionable
+                insights — all in one dashboard.
+            </p>
+            <div class="hero-buttons">
+                <a href="#demo-video" class="btn-theme btn-alt">Get Started</a>
+                <a href="#admin-login" class="btn-theme">Admin Login</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="box-container">
+        <div class="box">
+            <i class="fa-solid fa-chart-area"></i>
+            <div class="box-text">
+                <span>Real-Time Forecasts</span>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <div class="box-text">
+                <span>Prevents Overstocking</span>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div class="box-text">
+                <span>Smart Restocking Alerts</span>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fa-solid fa-calendar-day"></i>
+            <div class="box-text">
+                <span>Event-Aware Planning</span>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-banner">
+        <p>
+            <strong>Cut inventory losses by up to 30%</strong> — as projected by industry-proven AI forecasting models.
+        </p>
+    </section>
+
+    <section id="admin-login" class="container py-5">
+        <h2 class="text-center">Admin Access</h2>
+        <p class="text-center">Log in or sign up to access the SmartRetail dashboard.</p>
+        <div class="text-center mt-3">
+            <a href="login.html" class="btn-theme">Login</a>
+            <a href="signup.html" class="btn-theme btn-alt">Sign Up</a>
+        </div>
+    </section>
+
+    <section id="demo-video" class="container py-5">
+        <h2 class="text-center">See SmartRetail in Action</h2>
+        <p class="text-center">Watch this quick walkthrough of how our dashboard helps streamline retail inventory
+            management.</p>
+        <div class="text-center mt-4">
+            <video width="720" height="405" controls>
+                <source src="assets/demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <script src="js/landing.js"></script>
 </body>
+
 </html>

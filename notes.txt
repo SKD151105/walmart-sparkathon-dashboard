@@ -44,3 +44,26 @@ LANDING PAGE:
 3. Maintain Attention (Keep it Focussed) --> No navigation
 4. Visuals (Related to Purpose of Website)
 5. Social Proofs (like Testimonials, Numbers, etc.)
+
+Structure... header and hero section top
+
+Features
+Admin login section
+Video (Get Started) section
+FAQs
+Testimonials
+
+A navbar with site name + Contents of the Landing page + login/signup (top-right)
+A landing section with a catchy slogan:
+“Predict Smarter. Stock Smarter. Sell Smarter.”
+A 2-line product description
+2 buttons: Admin Login (scrolls to login section) and Get Started (scrolls to demo video)
+A light abstract tech-style background image
+
+Hero section me right wale empty side pe try showing feature carousal or slider...
+
+✅ Real-time Forecasts
+✅ Prevents Overstocking
+✅ Smart Restocking Alerts
+✅ Event-Aware Planning
+✅ Actionable Insights
