@@ -15,6 +15,7 @@
     --white-color: #fff;
     --l-violet-color: #892fff;
     --accent: #aa69ff;
+    --green-color: #00d962;
 }
 
 [data-theme="light"] {
@@ -67,6 +68,31 @@ li {
     scrollbar-width: none;
     box-shadow: 1px 0 5px 0px var(--shadow-color);
     z-index: 1000;
+    transition: all .3s ease;
+}
+
+#sidebar.hide {
+    width: 60px;
+    overflow: hidden;
+}
+
+#sidebar .brand span,
+#sidebar .side-menu li a .label {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease 0.2s;
+}
+
+#sidebar.hide .brand span,
+#sidebar.hide .side-menu li a .label {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease,
+        visibility 0s linear 0.3s;
+}
+
+#sidebar.hide .social-links a {
+    display: none;
 }
 
 #sidebar::-webkit-scrollbar {
@@ -84,10 +110,41 @@ li {
     align-items: center;
     height: 64px;
     font-weight: 700;
+    /* position: sticky; */
     position: relative;
+    top: 0;
     right: 0.8rem;
+    z-index: 100;
     margin-bottom: 1rem;
     cursor: default;
+    background-color: var(--card-color);
+    transition: all .3s ease;
+}
+
+#sidebar.hide .brand {
+    position: relative;
+    left: 0.2rem;
+}
+
+#sidebar {
+    transition: width 0.3s ease;
+}
+
+#content {
+    transition: left 0.3s ease, width 0.3s ease;
+}
+
+#sidebar .brand {
+    transition: padding 0.3s ease, left 0.3s ease;
+}
+
+#sidebar .side-menu {
+    transition: all 0.3s ease;
+}
+
+#sidebar .side-menu li a .label,
+#sidebar .social-links a {
+    transition: all 0.2s ease;
 }
 
 #sidebar .icon {
@@ -95,10 +152,15 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 6px;
+}
+
+#sidebar.hide .side-menu {
+    padding: 0 6px;
 }
 
 #sidebar .side-menu {
-    margin-top: 36px 0;
+    /* margin: 36px 0; */
     padding: 0 20px;
 }
 
@@ -124,13 +186,20 @@ li {
 }
 
 #sidebar .divider {
-    margin-top: 1.5rem;
+    margin: 1.6rem 0;
     font-size: 0.8rem;
     text-transform: uppercase;
     font-weight: 700;
     color: rgba(0, 0, 103, 0.753);
     position: relative;
     left: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+#sidebar.hide .divider {
+    /* text-align: center; */
+    position: relative;
+    left: 1.4rem;
 }
 
 .social-links {
@@ -149,7 +218,7 @@ li {
 }
 
 .social-links a i:hover {
-    color: var(--gold-color);
+    color: rgb(92, 92, 255);
 }
 
 /* CONTENT */
@@ -158,6 +227,12 @@ li {
     position: relative;
     width: calc(100% - 260px);
     left: 260px;
+    transition: all .3s ease;
+}
+
+#sidebar.hide+#content {
+    width: calc(100% - 60px);
+    left: 60px;
 }
 
 nav {
@@ -167,6 +242,11 @@ nav {
     display: flex;
     align-items: center;
     grid-gap: 28px;
+    box-shadow: 0 0 5px 1px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 
 nav .toggle-sidebar {
@@ -293,3 +373,181 @@ nav .toggle-sidebar {
     margin: 0 5px;
 }
 
+main {
+    max-width: 100%;
+    padding: 24px 20px 20px 20px;
+}
+
+main .title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+main .breadcrumbs {
+    display: flex;
+    grid-gap: 6px;
+}
+
+main .breadcrumbs li,
+main .breadcrumbs li a {
+    font-size: 14px;
+    color: rgb(94, 113, 255);
+    position: relative;
+    left: 0.5px;
+}
+
+main .breadcrumbs li a.active,
+main .breadcrumbs li.divider {
+    color: var(--d-gray-color);
+    pointer-events: none;
+}
+
+main .info-data {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 20px;
+}
+
+main .info-data .card {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--light-card);
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+main .card .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+main .card .head h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+main .card .head p {
+    font-size: 14px;
+}
+
+main .card .head .icon {
+    font-size: 20px;
+    color: var(--success-color);
+}
+
+main .card .head .icon.down {
+    color: var(--danger-color);
+}
+
+main .card .progress {
+    position: relative;
+    display: block;
+    margin-top: 24px;
+    height: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: var(--bg-color);
+    overflow-y: hidden;
+    margin-bottom: 4px;
+}
+
+main .card .progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--l-violet-color);
+    width: var(--value);
+}
+
+main .card .label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+main .data {
+    display: flex;
+    grid-gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+main .data .content-data {
+    flex-grow: 1;
+    flex-basis: 400px;
+    padding: 20px;
+    background-color: var(--card-color);
+    border-radius: 10px;
+    box-shadow: 4px 4px 16px var(--shadow-color);
+}
+
+main .content-data .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+main .content-data .head h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+main .content-data .head .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .content-data .head .menu .icon {
+    cursor: pointer;
+}
+
+main .content-data .head .menu-link {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 140px;
+    background-color: var(--light-card);
+    border-radius: 10px;
+    padding: 10px 0;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+
+main .content-data .head .menu-link.show {
+    top: 100%;
+    opacity: 1;
+    pointer-events: visible;
+}
+
+main .content-data .head .menu-link a {
+    display: block;
+    padding: 6px 16px;
+    font-size: 14px;
+    color: var(--dark-color);
+}
+
+main .content-data .head .menu-link a:hover {
+    background-color: var(--bg-color);
+}
+
+/* @media screen and (max-width: 768px) {
+    #content {
+        position: relative;
+        width: calc(100% - 60px);
+        transition: all .3s ease;
+    }
+
+    nav .nav-link,
+    nav .divider {
+        display: none;
+    }
+} */
