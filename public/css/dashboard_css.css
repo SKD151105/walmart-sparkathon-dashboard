@@ -459,7 +459,7 @@ main .card .progress {
     border-radius: 10px;
     background: var(--bg-color);
     overflow-y: hidden;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 .head .fa-star {
