@@ -426,19 +426,28 @@ main .card .head {
 main .card .head h2 {
     font-size: 24px;
     font-weight: 600;
+    color: var(--violet-color);
 }
 
 main .card .head p {
-    font-size: 14px;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 main .card .head .icon {
     font-size: 20px;
     color: var(--success-color);
+    margin: 0 1rem;
 }
 
 main .card .head .icon.down {
     color: var(--danger-color);
+}
+
+main .card .head span {
+    /* width: 50%; */
+    margin-left: 1rem;
+    font-size: 0.8rem;
 }
 
 main .card .progress {
@@ -453,6 +462,14 @@ main .card .progress {
     margin-bottom: 4px;
 }
 
+.head .fa-star {
+    margin-left: 0.5rem;
+    color: var(--gold-color);
+    font-size: 1.2rem;
+    position: relative;
+    bottom: 1px;
+}
+
 main .card .progress::before {
     content: '';
     position: absolute;
@@ -460,6 +477,8 @@ main .card .progress::before {
     left: 0;
     height: 100%;
     background-color: var(--l-violet-color);
+    /* background-color: var(--text-color); */
+    /* background-color: var(--gold-color); */
     width: var(--value);
 }
 
@@ -538,6 +557,10 @@ main .content-data .head .menu-link a {
 main .content-data .head .menu-link a:hover {
     background-color: var(--bg-color);
 }
+
+/* #chart:hover {
+    cursor: default;
+} */
 
 /* @media screen and (max-width: 768px) {
     #content {
