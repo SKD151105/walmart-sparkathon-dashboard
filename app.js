@@ -1,9 +1,26 @@
-const express = require('express');
+import express from "express";
+import bodyParser from "body-parser";
+
+
+// const express = require('express');
+// const app = express();
+// const apiRoutes = require('./routes/api');
+
 const app = express();
-const apiRoutes = require('./routes/api');
+const port = 3000;
 
-app.use(express.static('public'));          // Serve frontend
-app.use('/api', apiRoutes);                 // All API routes
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));        // Serve frontend
+app.set("view engine", "ejs");
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// app.use('/api', apiRoutes);                 // All API routes
+
+app.get("/", (req,res)=>{
+    res.render("landing");
+})
+
+
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});

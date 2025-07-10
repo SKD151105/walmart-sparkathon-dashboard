@@ -2,6 +2,8 @@
   "name": "walmart-sparkathon-dashboard",
   "version": "1.0.0",
   "main": "app.js",
+  "type": "module",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
@@ -15,7 +17,8 @@
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.0.1",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "ejs": "^3.1.9"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
