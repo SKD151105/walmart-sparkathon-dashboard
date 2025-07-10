@@ -19,6 +19,9 @@ app.get("/", (req,res)=>{
     res.render("landing");
 })
 
+app.get("/dash", (req,res)=>{
+    res.render("dashboard");
+})
 
 
 app.listen(port, () => {
