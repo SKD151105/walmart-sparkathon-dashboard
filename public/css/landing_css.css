@@ -270,7 +270,7 @@ header {
     max-width: 90%;
     height: 80vh;
     background-color: var(--white-color);
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: row;
@@ -411,7 +411,7 @@ header {
 
 .row {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
     flex-wrap: wrap;
 }
 
@@ -431,7 +431,7 @@ header {
 
 .signup-form label {
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
     font-size: 0.9rem;
     color: var(--dark-color);
     font-weight: 700;
