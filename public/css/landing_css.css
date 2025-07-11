@@ -588,7 +588,7 @@ header {
 }
 
 .theme-toggle i {
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .theme-toggle:hover i {
