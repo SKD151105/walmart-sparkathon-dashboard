@@ -122,6 +122,14 @@ var options = {
         }
     },
 
+    options: {
+        legend: {
+            labels: {
+                colors: ['#bcbcbc'],
+            }
+        }
+    },
+
     tooltip: {
         x: {
             format: 'dd/MM/yy HH:mm'

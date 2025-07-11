@@ -637,3 +637,8 @@ nav .icon {
 [data-theme="dark"] nav .profile .profile-link a:hover {
     background-color: #dedede;
 }
+
+.apexcharts-legend-text {
+    fill: #bcbcbc !important;
+    color: #bcbcbc !important;
+}
