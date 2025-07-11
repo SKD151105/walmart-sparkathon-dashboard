@@ -23,6 +23,10 @@ app.get("/dash", (req,res)=>{
     res.render("dashboard");
 })
 
+app.post("/register",(req,res)=>{
+  console.log("registered");
+  res.redirect("/dash");
+})
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
