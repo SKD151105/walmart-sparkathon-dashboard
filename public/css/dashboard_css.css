@@ -25,10 +25,11 @@
 }
 
 [data-theme="dark"] {
-    --bg-color: var(--dark-bg);
-    --text-color: var(--dark-text);
-    --card-color: var(--dark-card);
-    --accent: var(--gold-color);
+    --bg-color: #0a0f1f;
+    --card-color: #1e2640;
+    --text-color: #f0f4ff;
+    --d-gray-color: #6b7280;
+    --shadow-color: #2b545800;
 }
 
 * {
@@ -115,7 +116,7 @@ li {
     top: 0;
     right: 0.8rem;
     z-index: 100;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     cursor: default;
     background-color: var(--card-color);
     transition: all .3s ease;
@@ -282,7 +283,7 @@ nav .form-group .icon {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 320px;
+    left: 310px;
 }
 
 nav .nav-link {
@@ -296,12 +297,12 @@ nav .nav-link .icon {
 
 nav .nav-link .badge {
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: -8px;
+    right: -3px;
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    border: 2px solid var(--light-card);
+    /* border: 2px solid var(--light-card); */
     background-color: red;
     display: flex;
     justify-content: center;
@@ -476,9 +477,7 @@ main .card .progress::before {
     top: 0;
     left: 0;
     height: 100%;
-    background-color: var(--l-violet-color);
-    /* background-color: var(--text-color); */
-    /* background-color: var(--gold-color); */
+    background-image: linear-gradient(to right, #6f00ff, #3b82f6, #00d962);
     width: var(--value);
 }
 
@@ -558,19 +557,83 @@ main .content-data .head .menu-link a:hover {
     background-color: var(--bg-color);
 }
 
+nav .icon {
+    font-size: 1.3rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    color: var(--dark-color);
+    transition: color 0.2s;
+}
+
+
 /* #chart:hover {
     cursor: default;
-} */
+    } */
 
 /* @media screen and (max-width: 768px) {
-    #content {
-        position: relative;
-        width: calc(100% - 60px);
-        transition: all .3s ease;
-    }
+        #content {
+            position: relative;
+            width: calc(100% - 60px);
+            transition: all .3s ease;
+            }
+            
+            nav .nav-link,
+            nav .divider {
+                display: none;
+                }
+                } */
+[data-theme="dark"] nav .icon {
+    color: var(--light-card);
+}
 
-    nav .nav-link,
-    nav .divider {
-        display: none;
-    }
+[data-theme="dark"] main .card {
+    background-color: var(--card-color);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] main .card .head h2 {
+    color: var(--accent);
+    font-size: 2rem;
+}
+
+/* [data-theme="dark"] main .card .head p,
+[data-theme="dark"] .label {
+    color: var();
 } */
+
+[data-theme="dark"] main .card .progress::before {
+    background: linear-gradient(90deg, var(--violet-color), var(--green-color));
+}
+
+[data-theme="dark"] #sidebar,
+[data-theme="dark"] #sidebar .brand {
+    background: #0f1630;
+}
+
+[data-theme="dark"] nav {
+    background-color: #1a213b;
+}
+
+#sidebar.hide .icon {
+    color: #6b7280;
+}
+
+[data-theme="dark"] #sidebar .active i,
+[data-theme="dark"] #sidebar .active .label {
+    color: var(--dark-card);
+    font-weight: 700;
+}
+
+[data-theme="dark"] #sidebar .divider {
+    color: var(--d-gray-color);
+}
+
+[data-theme="dark"] nav .profile .profile-link a {
+    color: var(--gray-color);
+}
+
+[data-theme="dark"] nav .profile .profile-link a:hover {
+    background-color: #dedede;
+}
