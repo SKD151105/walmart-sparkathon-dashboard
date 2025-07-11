@@ -564,3 +564,33 @@ header {
     background: #fff;
     color: var(--violet-color);
 }
+
+[data-theme="dark"] {
+    --bg-color: #000841;
+    --dark-color: #ffffff;
+    --white-color: #00065d;
+    --gray-color: #cccccc;
+    --d-gray-color: #888;
+    --shadow-color: #1a1a1a;
+    --violet-color: #b488ff;
+    --l-violet-color: #d5a6ff;
+    --gold-color: #ffd700;
+}
+
+.theme-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    color: var(--dark-color);
+    display: none;
+}
+
+.theme-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover i {
+    transform: rotate(-20deg);
+}

@@ -74,14 +74,30 @@ toggleSidebar.addEventListener('click', function () {
 });
 
 // THEME TOGGLING
-const themeToggler = document.getElementById('toggle-theme');
-themeToggler.addEventListener('click', () => {
-    const html = document.documentElement;
-    const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
-    html.dataset.theme = next;
-    themeToggler.classList.toggle('fa-sun');
-    themeToggler.classList.toggle('fa-moon');
+const toggleBtn = document.getElementById("toggle-theme");
+const html = document.documentElement;
+
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+    html.setAttribute("data-theme", savedTheme);
+    updateIcon(savedTheme);
+} else {
+    html.setAttribute("data-theme", "light");
+    updateIcon("light");
+}
+
+toggleBtn.addEventListener("click", () => {
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    updateIcon(newTheme);
 });
+
+function updateIcon(theme) {
+    toggleBtn.classList.remove("fa-sun", "fa-moon");
+    toggleBtn.classList.add(theme === "dark" ? "fa-sun" : "fa-moon");
+}
 
 // APEXCHARTS.JS
 var options = {
