@@ -73,6 +73,16 @@ toggleSidebar.addEventListener('click', function () {
     }
 });
 
+// THEME TOGGLING
+const themeToggler = document.getElementById('toggle-theme');
+themeToggler.addEventListener('click', () => {
+    const html = document.documentElement;
+    const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    html.dataset.theme = next;
+    themeToggler.classList.toggle('fa-sun');
+    themeToggler.classList.toggle('fa-moon');
+});
+
 // APEXCHARTS.JS
 var options = {
     series: [{
@@ -94,8 +104,32 @@ var options = {
     },
     xaxis: {
         type: 'datetime',
-        categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+        categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+        labels: {
+            style: {
+                colors: '#bcbcbc',
+                fontSize: '12px'
+            }
+        }
     },
+
+    yaxis: {
+        labels: {
+            style: {
+                colors: '#bcbcbc',
+                fontSize: '12px'
+            }
+        }
+    },
+
+    options: {
+        legend: {
+            labels: {
+                colors: ['#bcbcbc'],
+            }
+        }
+    },
+
     tooltip: {
         x: {
             format: 'dd/MM/yy HH:mm'

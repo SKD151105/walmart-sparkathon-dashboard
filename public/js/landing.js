@@ -10,11 +10,30 @@ const signupOverlay = document.querySelector('.signup');
 const signupBox = signupOverlay.querySelector('.signup-container');
 
 signupBtn.addEventListener('click', () => {
-    signupOverlay.style.display = 'flex';  
+    signupOverlay.style.display = 'flex';
 });
 
 signupOverlay.addEventListener('click', (evt) => {
     if (!signupBox.contains(evt.target)) {
         signupOverlay.style.display = 'none';
     }
+});
+
+const loginOverlay = document.querySelector('.login-overlay');
+const loginBtn = document.getElementById('login');  
+const signupCta = document.querySelector('.btn-signup-cta');
+
+loginBtn.addEventListener('click', () => {
+    loginOverlay.style.display = 'flex';
+});
+
+loginOverlay.addEventListener('click', e => {
+    if (!e.target.closest('.login-container')) {
+        loginOverlay.style.display = 'none';
+    }
+});
+
+signupCta.addEventListener('click', () => {
+    loginOverlay.style.display = 'none';
+    document.querySelector('.signup').style.display = 'flex';
 });
