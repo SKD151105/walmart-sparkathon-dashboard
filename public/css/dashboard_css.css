@@ -553,10 +553,11 @@ main .content-data .head .menu-link a {
     padding: 6px 16px;
     font-size: 14px;
     color: var(--dark-color);
+    transition: all .2s ease;
 }
 
 main .content-data .head .menu-link a:hover {
-    background-color: var(--bg-color);
+    background-color: #e3e3e3;
 }
 
 nav .icon {
@@ -644,10 +645,27 @@ nav .icon {
     color: #bcbcbc !important;
 }
 
+.apexcharts-tooltip {
+    color: #3d3d3d !important;
+    background-color: #ffffff !important;
+}
+
+.apexcharts-tooltip-title {
+    color: #000 !important;
+}
+
 #toggle-theme {
     transition: all .4s ease;
 }
 
 #toggle-theme:hover {
-  transform: rotate(-20deg);
+    transform: rotate(-20deg);
+}
+
+[data-theme="dark"] nav {
+    box-shadow: 0 -1px 20px 4px var(--dark-bg);
+}
+
+[data-theme="dark"] #sidebar {
+    box-shadow: 1px 0 10px 2px var(--dark-bg);
 }
