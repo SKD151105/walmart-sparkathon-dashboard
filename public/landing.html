@@ -19,7 +19,7 @@
             <div class="navbar-brand">SmartRetail</div>
             <div class="navbar-links">
                 <button id="signup" class="nav-btn">Sign Up</button>
-                <button id="login" class="nav-btn" onclick="location.href='login.html'">Login</button>
+                <button id="login" class="nav-btn">Login</button>
             </div>
         </nav>
     </header>
@@ -104,12 +104,33 @@
         </div>
     </section>
 
-    <section class="login">
+    <section class="login-overlay">
         <div class="login-container">
-            <div class="left"></div>
-            <div class="right"></div>
+            <div class="login-form-panel">
+                <form class="login-form">
+                    <h3>Member Login</h3>
+                    <div class="field">
+                        <label for="wid-login">Walmart ID</label>
+                        <input name="username" id="wid-login" type="text" placeholder="W‑12345" required>
+                    </div>
+                    <div class="field">
+                        <label for="pw-login">Password</label>
+                        <input name="password" id="pw-login" type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn-login">Login</button>
+                </form>
+            </div>
+
+            <div class="login-info-panel">
+                <div class="info-content">
+                    <h2>Not yet a member?</h2>
+                    <p>Join SmartRetail today for instant forecasts, stock alerts, and data‑driven insights.</p>
+                    <button class="btn-signup-cta">Sign Up</button>
+                </div>
+            </div>
         </div>
     </section>
+
 
     <section class="box-container">
         <div class="box">
