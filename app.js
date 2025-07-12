@@ -23,6 +23,10 @@ app.get("/dash", (req,res)=>{
     res.render("dashboard");
 })
 
+app.get("/inventory",(req,res)=>{
+  res.render("inventory");
+})
+
 app.post("/register",(req,res)=>{
   console.log("registered");
   res.redirect("/dash");
