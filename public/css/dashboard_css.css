@@ -425,7 +425,7 @@ main .card .head {
 }
 
 main .card .head h2 {
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--violet-color);
 }
@@ -439,6 +439,8 @@ main .card .head .icon {
     font-size: 20px;
     color: var(--success-color);
     margin: 0 1rem;
+    position: relative;
+    top: 10px;
 }
 
 main .card .head .icon.down {
@@ -551,10 +553,11 @@ main .content-data .head .menu-link a {
     padding: 6px 16px;
     font-size: 14px;
     color: var(--dark-color);
+    transition: all .2s ease;
 }
 
 main .content-data .head .menu-link a:hover {
-    background-color: var(--bg-color);
+    background-color: #e3e3e3;
 }
 
 nav .icon {
@@ -595,7 +598,6 @@ nav .icon {
 
 [data-theme="dark"] main .card .head h2 {
     color: var(--accent);
-    font-size: 2rem;
 }
 
 /* [data-theme="dark"] main .card .head p,
@@ -616,8 +618,8 @@ nav .icon {
     background-color: #1a213b;
 }
 
-#sidebar.hide .icon {
-    color: #6b7280;
+[data-theme="dark"] #sidebar.hide .icon {
+    color: #ffffff;
 }
 
 [data-theme="dark"] #sidebar .active i,
@@ -641,4 +643,29 @@ nav .icon {
 .apexcharts-legend-text {
     fill: #bcbcbc !important;
     color: #bcbcbc !important;
+}
+
+.apexcharts-tooltip {
+    color: #3d3d3d !important;
+    background-color: #ffffff !important;
+}
+
+.apexcharts-tooltip-title {
+    color: #000 !important;
+}
+
+#toggle-theme {
+    transition: all .4s ease;
+}
+
+#toggle-theme:hover {
+    transform: rotate(-20deg);
+}
+
+[data-theme="dark"] nav {
+    box-shadow: 0 -1px 20px 4px var(--dark-bg);
+}
+
+[data-theme="dark"] #sidebar {
+    box-shadow: 1px 0 10px 2px var(--dark-bg);
 }
