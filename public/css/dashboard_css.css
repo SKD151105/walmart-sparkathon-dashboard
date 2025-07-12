@@ -618,8 +618,8 @@ nav .icon {
     background-color: #1a213b;
 }
 
-#sidebar.hide .icon {
-    color: #6b7280;
+[data-theme="dark"] #sidebar.hide .icon {
+    color: #ffffff;
 }
 
 [data-theme="dark"] #sidebar .active i,
