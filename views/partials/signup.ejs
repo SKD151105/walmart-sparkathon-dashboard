@@ -11,27 +11,19 @@
             <div class="right">
                 <form class="signup-form" action="/register" method="POST">
                     <h3>Create Account</h3>
-                    <div class="social-signin">
-                        <button type="button" class="btn-google">
-                            <i class="fa-brands fa-google"></i> Sign in with Google
-                        </button>
-                    </div>
-
-                    <p class="or-text">or use your details below</p>
-
                     <div class="field">
                         <label for="name">Name</label>
-                        <input id="name" type="text" placeholder="Your full name" required>
+                        <input id="name" type="text" placeholder="Your full name" name = "name" required>
                     </div>
 
                     <div class="row">
                         <div class="col">
                             <label for="gender">Gender</label>
-                            <input id="gender" type="text" placeholder="e.g. Female" required>
+                            <input id="gender" type="text" placeholder="e.g. Female" name = "gender" required>
                         </div>
                         <div class="col">
                             <label for="occupation">Occupation</label>
-                            <select id="occupation" required>
+                            <select id="occupation" name="occupation" required>
                                 <option value="" disabled selected>Select…</option>
                                 <option>Manager</option>
                                 <option>Analyst</option>
@@ -44,19 +36,19 @@
 
                     <div class="field">
                         <label for="wid">Walmart ID</label>
-                        <input id="wid" type="text" placeholder="W-12345" required>
+                        <input id="wid" type="text" placeholder="W-12345" name = "username" required>
                     </div>
                     <div class="field">
                         <label for="email">Email</label>
-                        <input id="email" type="email" placeholder="you@example.com" required>
+                        <input id="email" type="email" placeholder="you@example.com" name = "email" required>
                     </div>
                     <div class="field">
                         <label for="pw1">Password</label>
-                        <input id="pw1" type="password" placeholder="••••••••" required>
+                        <input id="pw1" type="password" placeholder="••••••••" name = "password" required>
                     </div>
                     <div class="field">
                         <label for="pw2">Re‑enter Password</label>
-                        <input id="pw2" type="password" placeholder="••••••••" required>
+                        <input id="pw2" type="password" placeholder="••••••••" name = "rePAss" required>
                     </div>
 
                     <button type="submit" class="btn-signup">Sign Up</button>
