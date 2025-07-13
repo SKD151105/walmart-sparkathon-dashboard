@@ -168,23 +168,24 @@ passport.deserializeUser((user,cb)=>{
   cb(null,user);
 });
 
-//analysis route handler
-app.post("/analysis", async (req, res) => {
+
+app.get("/analysis", async (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect("/");
   }
 
   try {
     const response = await axios.post("http://localhost:5001/predict_7day_forecast");
+    console.log("✅ Flask response data length:", response.data.image?.length);
+
     const base64Image = response.data.image;
-    
-    // Pass image to dashboard.ejs
-    res.render("dashboard", { image: base64Image });
+    res.render("analysis", { image: base64Image });
   } catch (err) {
     console.error("ML service error:", err.message);
-    res.render("dashboard", { image: null });  // fallback: no image
+    res.render("analysis", { image: null });
   }
 });
+
 
 
 app.listen(port, () => {
