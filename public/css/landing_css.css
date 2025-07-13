@@ -58,6 +58,11 @@ header {
     cursor: pointer;
 }
 
+.nav-logout{
+    background-color: var(--violet-color) ;
+    color: var(--white-color);
+}
+
 #signup {
     color: rgb(46, 46, 46);
     background-color: var(--white-color);

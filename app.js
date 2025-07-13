@@ -45,12 +45,13 @@ db.connect(); // database setup
 // app.use('/api', apiRoutes);                 // All API routes
 
 app.get("/", (req,res)=>{
+  let islogin = true;
   if (!req.isAuthenticated()){
-    res.render("landing");
+    islogin = false;
   }
-  else {
-    res.redirect("/dash");
-  }
+  res.render("landing", {
+    login: islogin
+  })
 })
 
 app.get("/dash", (req,res)=>{
