@@ -118,3 +118,47 @@ signupForm.addEventListener('submit', function (e) {
         signupForm.submit();
     }
 });
+
+// FORM VALIDATION FOR LOGIN
+const loginForm = document.querySelector('.login-form');
+
+loginForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    loginForm.querySelectorAll('.error-msg').forEach(el => el.remove());
+    loginForm.querySelectorAll('input').forEach(el => {
+        el.style.borderBottom = '1px solid #ccc';
+    });
+
+    let isValid = true;
+
+    const showError = (input, message) => {
+        input.style.borderBottom = '2px solid red';
+
+        const error = document.createElement('div');
+        error.className = 'error-msg';
+        error.style.color = 'red';
+        error.style.fontSize = '0.8rem';
+        error.style.marginTop = '4px';
+        error.textContent = message;
+
+        input.insertAdjacentElement('afterend', error);
+        isValid = false;
+    };
+
+    const wid = document.getElementById('wid-login');
+    const password = document.getElementById('pw-login');
+
+    if (!/^W-\d{5}$/i.test(wid.value.trim())) {
+        showError(wid, 'Walmart ID must be like W-12345.');
+    }
+
+    if (password.value.trim().length < 6) {
+        showError(password, 'Password must be at least 6 characters.');
+    }
+
+    if (isValid) {
+        console.log('Login form valid! You may proceed.');
+        loginForm.submit();
+    }
+});
