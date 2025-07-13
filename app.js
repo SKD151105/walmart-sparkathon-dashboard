@@ -168,10 +168,6 @@ passport.deserializeUser((user,cb)=>{
   cb(null,user);
 });
 
-// //analysis route handler
-// app.get("/analysis",(req,res)=>{
-//   res.render("analysis");
-// })
 
 app.get("/analysis", async (req, res) => {
   if (!req.isAuthenticated()) {
