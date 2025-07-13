@@ -7,10 +7,7 @@ import { Strategy } from "passport-local";
 import session from "express-session";
 import env from "dotenv";
 import axios from "axios";
-<<<<<<< HEAD
 
-=======
->>>>>>> 2b33f5c659f60efa1f8eefa58a5d3394067681a9
 
 // const express = require('express');
 // const app = express();
