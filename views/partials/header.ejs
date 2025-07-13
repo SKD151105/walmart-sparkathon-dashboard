@@ -21,8 +21,8 @@
                     <button id="theme-toggle" class="nav-btn theme-toggle" title="Toggle Theme">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <button id="signup" class="nav-btn">Sign Up</button>
-                    <button id="login" class="nav-btn">Login</button>
+                    <button id="signup" class="nav-btn s-btn">Sign Up</button>
+                    <button id="login" class="nav-btn l-btn">Login</button>
                 </div>
             </nav>
             <% } else { %>
@@ -32,8 +32,8 @@
                         <button id="theme-toggle" class="nav-btn theme-toggle" title="Toggle Theme">
                             <i class="fas fa-moon"></i>
                         </button>
-                        <button onclick="location.href='/dash'" class="nav-btn">dashboard</button>
-                        <button onclick="location.href='/logout'" class="nav-btn nav-logout">Logout</button>
+                        <button onclick="location.href='/logout'" class="nav-btn nav-logout s-btn">Log Out</button>
+                        <button onclick="location.href='/dash'" class="nav-btn l-btn">DashBoard</button>
                     </div>
                 </nav>
                 <% } %>

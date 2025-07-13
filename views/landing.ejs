@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/landing_css.css">
 </head>
 
-<%- include('partials/header.ejs'); -%>
+<%- include("partials/header", { login: login }) %>
 
     <section class="hero" id="hero">
         <div class="hero-overlay">
@@ -98,6 +98,15 @@
                 </div>
             </section>
 
+            <script>
+                window.addEventListener('pageshow', function (event) {
+                    const navEntries = performance.getEntriesByType("navigation");
+                    const navType = navEntries.length && navEntries[0].type;
+                    if (event.persisted || navType === "back_forward") {
+                        window.location.reload(true);
+                    }
+                });
+            </script>
             <script src="/js/landing-min.js"></script>
             </body>
 

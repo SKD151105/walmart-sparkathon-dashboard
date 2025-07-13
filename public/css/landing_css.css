@@ -63,25 +63,25 @@ header {
     color: var(--white-color);
 }
 
-#signup {
+.s-btn {
     color: rgb(46, 46, 46);
     background-color: var(--white-color);
     transition: color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
 }
 
-#signup:hover {
+.s-btn:hover {
     font-weight: 900;
     color: var(--violet-color);
     text-shadow: 0 0 10px rgb(187, 145, 255);
 }
 
-#login {
+.l-btn {
     background: var(--violet-color);
     color: #ffffff;
     transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
-#login:hover {
+.l-btn:hover {
     box-shadow: 2px 2px 8px 1px rgb(187, 145, 255);
     background-color: var(--l-violet-color);
 }
