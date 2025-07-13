@@ -6,6 +6,7 @@ import passport from "passport";
 import { Strategy } from "passport-local";
 import session from "express-session";
 import env from "dotenv";
+import axios from "axios";
 
 
 // const express = require('express');
@@ -165,6 +166,25 @@ passport.serializeUser((user,cb)=>{
 passport.deserializeUser((user,cb)=>{
   cb(null,user);
 });
+
+//analysis route handler
+app.post("/analysis", async (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.redirect("/");
+  }
+
+  try {
+    const response = await axios.post("http://localhost:5001/predict_7day_forecast");
+    const base64Image = response.data.image;
+    
+    // Pass image to dashboard.ejs
+    res.render("dashboard", { image: base64Image });
+  } catch (err) {
+    console.error("ML service error:", err.message);
+    res.render("dashboard", { image: null });  // fallback: no image
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
