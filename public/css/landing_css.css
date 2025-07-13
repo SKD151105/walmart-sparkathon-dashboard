@@ -58,8 +58,8 @@ header {
     cursor: pointer;
 }
 
-.nav-logout{
-    background-color: var(--violet-color) ;
+.nav-logout {
+    background-color: var(--violet-color);
     color: var(--white-color);
 }
 
@@ -598,4 +598,15 @@ header {
 
 .theme-toggle:hover i {
     transform: rotate(-20deg);
+}
+
+.signup-form input:invalid,
+.signup-form select:invalid {
+    outline: none;
+}
+
+.error-msg {
+    font-size: 0.8rem;
+    color: red;
+    margin-top: 0.2rem;
 }
