@@ -1,0 +1,25 @@
+<%- include('partials/dashHeader.ejs'); -%>
+<%- include('partials/dashSidebar.ejs'); -%>
+
+<section id="content">
+  <%- include('partials/dashNav.ejs'); -%>
+
+  <main style="padding: 2rem;">
+    <h1 class="title" style="margin-bottom: 2rem;">Category-wise Sales Forecast</h1>
+
+    <% if (forecasts && Object.keys(forecasts).length > 0) { %>
+      <% for (let category in forecasts) { %>
+        <div style="margin-bottom: 3rem; padding: 1rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <h2 style="margin-bottom: 1rem; font-size: 1.5rem;"><%= category %></h2>
+          <img src="data:image/png;base64,<%= forecasts[category] %>" 
+               alt="<%= category %> Forecast" 
+               style="width: 100%; max-width: 1000px; border-radius: 8px;" />
+        </div>
+      <% } %>
+    <% } else { %>
+      <p style="color: gray;">Forecast images not available.</p>
+    <% } %>
+  </main>
+</section>
+
+<%- include('partials/dashFooter.ejs'); -%>
