@@ -933,13 +933,14 @@ video {
 .footer {
     background-color: var(--dark-color);
     color: white;
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
     text-align: center;
+    padding-top: 1.5rem;
 }
 
 .footer-content h3 {
     font-size: 1.6rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     color: var(--gold-color);
 }
 
@@ -980,5 +981,6 @@ video {
 .footer-copy {
     font-size: 0.85rem;
     color: #999;
-    margin-top: 1.5rem;
+    position: relative;
+    top: .5rem;
 }
