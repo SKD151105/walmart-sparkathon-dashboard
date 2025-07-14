@@ -9,7 +9,7 @@ window.onload = () => {
 const signupBtn = document.getElementById('signup');
 const signupOverlay = document.querySelector('.signup');
 const signupBox = signupOverlay.querySelector('.signup-container');
-const loginCta = document.querySelector('#s-login');
+const loginCta = document.querySelector('.s-login');
 
 signupBtn.addEventListener('click', () => {
     signupOverlay.style.display = 'flex';
