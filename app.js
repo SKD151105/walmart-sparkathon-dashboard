@@ -34,6 +34,11 @@ app.set("view engine", "ejs");
 app.use(passport.initialize());
 app.use(passport.session());
 
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/");
+}
+
 const db = new pg.Client({
   user: process.env.PG_USER,
   host: process.env.PG_HOST,
@@ -173,23 +178,16 @@ passport.deserializeUser((user,cb)=>{
 //   res.render("analysis");
 // })
 
-app.get("/analysis", async (req, res) => {
-  if (!req.isAuthenticated()) {
-    return res.redirect("/");
-  }
-
+app.get("/analysis", isAuthenticated, async (req, res) => {
   try {
-    const response = await axios.post("http://localhost:5001/predict_7day_forecast");
-    console.log("✅ Flask response data length:", response.data.image?.length);
-
-    const base64Image = response.data.image;
-    res.render("analysis", { image: base64Image });
+    const response = await axios.post("http://localhost:5001/predict_category_forecasts");
+    const forecastImages = response.data;
+    res.render("analysis", { forecasts: forecastImages });
   } catch (err) {
     console.error("ML service error:", err.message);
-    res.render("analysis", { image: null });
+    res.render("analysis", { forecasts: null });
   }
 });
-
 
 
 app.listen(port, () => {
