@@ -58,8 +58,8 @@ header {
     cursor: pointer;
 }
 
-.nav-logout{
-    background-color: var(--violet-color) ;
+.nav-logout {
+    background-color: var(--violet-color);
     color: var(--white-color);
 }
 
@@ -206,7 +206,7 @@ header {
 }
 
 .impact-banner p {
-    padding-right: 4rem;
+    padding-right: 3rem;
 }
 
 .box-container {
@@ -598,4 +598,312 @@ header {
 
 .theme-toggle:hover i {
     transform: rotate(-20deg);
+}
+
+#image {
+    width: 80%;
+    margin: auto;
+}
+
+.image {
+    background-color: var(--shadow-color);
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 4rem;
+    text-align: center;
+}
+
+.features span {
+    font-size: 0.8rem;
+    color: var(--violet-color);
+    font-weight: 600;
+    position: relative;
+    top: 1rem;
+}
+
+.features h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 2rem;
+}
+
+.features p {
+    margin-bottom: 6rem;
+}
+
+.benefits {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.benefit {
+    flex: 1;
+    height: 250px;
+    margin: 1rem 1rem;
+    border: 2px solid var(--shadow-color);
+    background-position: center;
+    border-radius: 10px;
+    position: relative;
+    transition: all .3s ease;
+    padding: 0.5rem 2rem;
+    text-align: left;
+    overflow: hidden;
+    min-width: 200px;
+    max-width: 250px;
+}
+
+.benefit:hover {
+    box-shadow: 0 0 8px rgba(140, 0, 255, 0.355);
+}
+
+.feature:hover {
+    box-shadow: 0 0 8px rgba(195, 185, 0, 0.355);
+}
+
+.benefit h3 {
+    font-size: 1.4rem;
+    color: rgb(247, 184, 26);
+    /* position: absolute;
+    top: 1rem;
+    left: 1rem; */
+}
+
+.benefit p {
+    font-size: .9rem;
+    color: var(--gray-color);
+    /* margin-bottom: 1rem; */
+}
+
+.feature h3 {
+    font-size: 1.4rem;
+    color: rgb(177, 26, 247);
+    /* position: absolute;
+    top: 1rem;
+    left: 1rem; */
+}
+
+.feature p {
+    font-size: .9rem;
+    color: var(--gray-color);
+    /* margin-bottom: 1rem; */
+}
+
+.benefit a {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#b1 a {
+    position: relative;
+    bottom: 3.5rem;
+    display: inline-block;
+}
+
+#b2 a {
+    position: relative;
+    bottom: 4.4rem;
+    display: inline-block;
+}
+
+#b3 a {
+    position: relative;
+    bottom: 4.4rem;
+    display: inline-block;
+}
+
+#b4 a {
+    position: relative;
+    bottom: 3.5rem;
+    display: inline-block;
+}
+
+.feature a {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.feature a i {
+    padding-left: 5px;
+}
+
+.benefit a i {
+    padding-left: 5px;
+}
+
+#f1 a {
+    position: relative;
+    bottom: 3.5rem;
+    display: inline-block;
+}
+
+#f2 a {
+    position: relative;
+    bottom: 3.6rem;
+    display: inline-block;
+}
+
+#f3 a {
+    position: relative;
+    bottom: 4.5rem;
+    display: inline-block;
+}
+
+#f4 a {
+    position: relative;
+    bottom: 4.5rem;
+    display: inline-block;
+}
+
+#features {
+    margin-top: 5rem;
+}
+
+.features-list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.feature {
+    flex: 1;
+    height: 250px;
+    margin: 1rem 1rem;
+    border: 2px solid var(--shadow-color);
+    background-position: center;
+    border-radius: 10px;
+    position: relative;
+    transition: all .3s ease;
+    padding: 0.5rem 2rem;
+    text-align: left;
+    overflow: hidden;
+    min-width: 200px;
+    max-width: 250px;
+}
+
+.faq {
+    padding: 4rem 2rem;
+    background-color: #f8f9fc;
+    text-align: center;
+}
+
+.faq span {
+    font-size: 0.8rem;
+    color: var(--violet-color);
+    font-weight: 600;
+}
+
+.faq h1 {
+    font-size: 2.2rem;
+    color: var(--dark-color);
+    margin: 1rem 0;
+}
+
+.faq p {
+    font-size: 1rem;
+    max-width: 700px;
+    margin: 0.5rem auto 2rem;
+    color: var(--gray-color);
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.faq-item {
+    background: #fff;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--shadow-color);
+    text-align: left;
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 0 10px rgba(140, 0, 255, 0.2);
+}
+
+.faq p {
+    line-height: 1.5rem;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: var(--dark-color);
+}
+
+.faq-question h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.faq-question i {
+    font-size: 1rem;
+    position: relative;
+    top: 3px;
+    transition: transform 0.3s ease;
+    color: var(--violet-color);
+}
+
+.faq-item.open .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    display: none;
+    font-size: 0.95rem;
+    color: var(--gray-color);
+    line-height: 1.5;
+    max-width: 1000px;
+    margin: 0;
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+    max-width: 800px;
+    margin: .5rem 0 2rem 0;
+}
+
+#demo-video {
+    width: 100%;
+    height: 60vh;
+    background-color: var(--shadow-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 4rem auto;
+    margin-bottom: 0;
+}
+
+video {
+    max-width: 40vw;
+    border-radius: 1rem;
+    max-height: 54vh;
+}
+
+.dv-box {
+    max-width: 40vw;
+}
+
+.dv-box h2 {
+    font-size: 2rem;
+    color: var(--dark-color);
+    margin-bottom: 2rem;
 }
