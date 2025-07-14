@@ -163,6 +163,29 @@ var options = {
     }
 };
 
-
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
+
+const navLinks = document.querySelectorAll('#sidebar .side-menu a[data-target]');
+const sections = document.querySelectorAll('main.main');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        // only preventDefault on the ones with data-target
+        e.preventDefault();
+
+        // toggle sidebar “active” class
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        // show/hide mains
+        const targetId = link.dataset.target;
+        sections.forEach(sec => {
+            sec.id === targetId
+                ? sec.classList.add('active')
+                : sec.classList.remove('active');
+        });
+    });
+});
+
+// DASHBOARD DATA

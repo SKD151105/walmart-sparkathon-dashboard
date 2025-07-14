@@ -58,9 +58,21 @@ header {
     cursor: pointer;
 }
 
-.nav-logout{
-    background-color: var(--violet-color) ;
+.nav-logout {
+    background-color: var(--violet-color);
     color: var(--white-color);
+}
+
+.s-btn {
+    color: rgb(46, 46, 46);
+    background-color: var(--white-color);
+    transition: color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
+}
+
+.s-btn:hover {
+    font-weight: 900;
+    color: var(--violet-color);
+    text-shadow: 0 0 10px rgb(187, 145, 255);
 }
 
 #signup {
@@ -73,6 +85,17 @@ header {
     font-weight: 900;
     color: var(--violet-color);
     text-shadow: 0 0 10px rgb(187, 145, 255);
+}
+
+.l-btn {
+    background: var(--violet-color);
+    color: #ffffff;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.l-btn:hover {
+    box-shadow: 2px 2px 8px 1px rgb(187, 145, 255);
+    background-color: var(--l-violet-color);
 }
 
 #login {
@@ -598,4 +621,15 @@ header {
 
 .theme-toggle:hover i {
     transform: rotate(-20deg);
+}
+
+.signup-form input:invalid,
+.signup-form select:invalid {
+    outline: none;
+}
+
+.error-msg {
+    font-size: 0.8rem;
+    color: red;
+    margin-top: 0.2rem;
 }

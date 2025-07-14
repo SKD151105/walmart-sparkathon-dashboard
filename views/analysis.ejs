@@ -1,4 +1,5 @@
 <%- include('partials/dashHeader.ejs'); -%>
+<<<<<<< HEAD
 <%- include('partials/dashSidebar.ejs'); -%>
 
 <section id="content">
@@ -23,3 +24,104 @@
 </section>
 
 <%- include('partials/dashFooter.ejs'); -%>
+=======
+
+    <%- include('partials/dashSidebar.ejs'); -%>
+
+        <section id="content">
+            <%- include('partials/dashNav.ejs'); -%>
+                <main>
+                    <h1 class="title">Dashboard</h1>
+                    <ul class="breadcrumbs">
+                        <li><a href="#">Home</a></li>
+                        <li class="divider">/</li>
+                        <li><a href="#" class="active">Dashboard</a></li>
+                    </ul>
+
+                    <div class="info-data">
+                        <div class="card">
+                            <div class="head">
+                                <div>
+                                    <h2>1500</h2>
+                                    <p>Profit</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-trend-up icon"></i>
+                            </div>
+                            <span class="progress" data-value="55%"></span>
+                            <span class="label">55%</span>
+                        </div>
+                        <div class="card">
+                            <div class="head">
+                                <div>
+                                    <h2>500</h2>
+                                    <p>Sales</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-trend-down icon down"></i>
+                            </div>
+                            <span class="progress" data-value="30%"></span>
+                            <span class="label">30%</span>
+                        </div>
+                        <div class="card">
+                            <div class="head">
+                                <div>
+                                    <h2>1500</h2>
+                                    <p>Page Views</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-trend-up icon"></i>
+                            </div>
+                            <span class="progress" data-value="70%"></span>
+                            <span class="label">70%</span>
+                        </div>
+                        <div class="card">
+                            <div class="head">
+                                <div>
+                                    <h2>150</h2>
+                                    <p>Clients</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-trend-up icon"></i>
+                            </div>
+                            <span class="progress" data-value="50%"></span>
+                            <span class="label">50%</span>
+                        </div>
+                    </div>
+                    <div class="data">
+                        <div class="content-data">
+                            <div class="head">
+                                <h3>Sales Prediction</h3>
+                                <div class="menu">
+                                    <i class="fa-solid fa-ellipsis icon"></i>
+                                    <ul class="menu-link">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Save</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="chart">
+                                <% if (typeof image !=="undefined" && image) { %>
+                                    <img src="data:image/png;base64,<%= image %>" alt="7-Day Forecast Chart"
+                                        style="max-width: 100%; border-radius: 10px;" />
+                                    <% } else { %>
+                                        <p style="padding: 1rem; color: gray;">Forecast image not available.</p>
+                                        <% } %>
+                            </div>
+                        </div>
+                        <div class="content-data">
+                            <div class="head">
+                                <h3>Profit Percentage</h3>
+                                <div class="menu">
+                                    <i class="fa-solid fa-ellipsis icon"></i>
+                                    <ul class="menu-link">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Save</a></li>
+                                        <li><a href="#">Remove</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+        </section>
+
+        <%- include('partials/dashFooter.ejs'); -%>
+>>>>>>> 4b7160590cb3620cce00fe311443271567319e41
