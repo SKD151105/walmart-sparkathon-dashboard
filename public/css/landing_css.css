@@ -197,8 +197,10 @@ header {
     text-align: center;
     font-size: 1.2rem;
     color: var(--gray-color);
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin: 1rem 0;
+    background-color: rgb(255, 239, 145);
 }
 
 .impact-banner strong {

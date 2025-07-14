@@ -20,13 +20,13 @@ env.config();
 
 app.use(
   session({
-    secret:process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: {maxAge: 1000 * 60  * 60 * 24},
+    cookie: { maxAge: 1000 * 60 * 60 * 24 },
   })
 );  // session
-  
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));        // Serve frontend
 app.set("view engine", "ejs");
@@ -50,9 +50,9 @@ db.connect(); // database setup
 
 // app.use('/api', apiRoutes);                 // All API routes
 
-app.get("/", (req,res)=>{
+app.get("/", (req, res) => {
   let islogin = true;
-  if (!req.isAuthenticated()){
+  if (!req.isAuthenticated()) {
     islogin = false;
   }
   res.render("landing", {
@@ -60,8 +60,8 @@ app.get("/", (req,res)=>{
   })
 })
 
-app.get("/dash", (req,res)=>{
-  if (req.isAuthenticated()){
+app.get("/dash", (req, res) => {
+  if (req.isAuthenticated()) {
     res.render("dashboard");
   }
   else {
@@ -78,7 +78,7 @@ app.get("/inventory", isAuthenticated, (req, res) => {
 // POST route to get inventory data from Flask
 app.post("/inventory/data", async (req, res) => {
   try {
-    const response = await axios.post("http://localhost:5002/inventory_status"); // ✅ Corrected endpoint
+    const response = await axios.post("http://127.0.0.1:5002/inventory_status");
     res.json(response.data);
   } catch (err) {
     console.error("Inventory ML service error:", err.message);
@@ -88,7 +88,7 @@ app.post("/inventory/data", async (req, res) => {
 
 
 
-app.post("/register",async (req,res)=>{
+app.post("/register", async (req, res) => {
   const name = req.body.name;
   const gender = req.body.gender;
   const occupation = req.body.occupation;
@@ -98,13 +98,13 @@ app.post("/register",async (req,res)=>{
   const rePass = req.body.rePass;
 
   try {
-    const AuthCheck = await db.query("SELECT * FROM authusers WHERE walmartID = $1 ",[username]);
-    if (AuthCheck.rows.length === 0){
+    const AuthCheck = await db.query("SELECT * FROM authusers WHERE walmartID = $1 ", [username]);
+    if (AuthCheck.rows.length === 0) {
       return res.redirect("/"); // not authorized
     }
     else {
-      const result = await db.query("SELECT * FROM users WHERE walmartID = $1 ",[username]);
-      if (result.rows.length > 0){
+      const result = await db.query("SELECT * FROM users WHERE walmartID = $1 ", [username]);
+      if (result.rows.length > 0) {
         return res.redirect("/login"); // already registered
       }
       // else if (password !== rePass){
@@ -112,15 +112,15 @@ app.post("/register",async (req,res)=>{
       // }
       else {
         // hash the password
-        const hash = await bcrypt.hash(password,saltRounds);
+        const hash = await bcrypt.hash(password, saltRounds);
 
         const result = await db.query("INSERT INTO users (name, gender, occupation, walmartid, email, password) values ($1, $2, $3, $4, $5, $6) RETURNING *",
-          [name, gender, occupation, username, email, hash] 
+          [name, gender, occupation, username, email, hash]
         );
         const user = result.rows[0];
-        req.login(user,(err)=>{
-          if (err){
-            console/log(err);
+        req.login(user, (err) => {
+          if (err) {
+            console / log(err);
             return res.redirect("/");
           }
           console.log("register success");
@@ -128,7 +128,7 @@ app.post("/register",async (req,res)=>{
         });
       }
     } // valid for register
-  } catch (err){
+  } catch (err) {
     console.log(err);
   }
 
@@ -137,7 +137,7 @@ app.post("/register",async (req,res)=>{
 })
 
 app.get("/logout", (req, res) => {
-  req.logout(function(err) {
+  req.logout(function (err) {
     if (err) {
       console.error("Logout error:", err);
       return res.redirect("/dash"); // or show an error page
@@ -146,46 +146,46 @@ app.get("/logout", (req, res) => {
   });
 });
 
-app.post("/login",passport.authenticate("local",{
+app.post("/login", passport.authenticate("local", {
   successRedirect: "/dash",
   failureRedirect: "/"
 }))
 
 passport.use(
-  new Strategy(async function verify(username, password, cb){
-    try{
+  new Strategy(async function verify(username, password, cb) {
+    try {
       const result = await db.query("SELECT * FROM users WHERE walmartid = $1", [username]);
-      if (result.rows.length > 0){
+      if (result.rows.length > 0) {
         const user = result.rows[0];
         const storedHAshedPAssword = user.password;
-        bcrypt.compare(password, storedHAshedPAssword, (err,result)=>{
-          if (err){
+        bcrypt.compare(password, storedHAshedPAssword, (err, result) => {
+          if (err) {
             console.log(err);
           } else {
-            if (result){
+            if (result) {
               console.log("correct password");
-              return cb(null,user);
+              return cb(null, user);
             } else {
               console.log("wrong password");
-              return cb(null,false);
+              return cb(null, false);
             }
           }
         });
       } else {
         return cb("user not found");
       }
-    } catch (err){
+    } catch (err) {
       console.log(err);
     }
   })
 )
 
-passport.serializeUser((user,cb)=>{
-  cb(null,user);
+passport.serializeUser((user, cb) => {
+  cb(null, user);
 });
 
-passport.deserializeUser((user,cb)=>{
-  cb(null,user);
+passport.deserializeUser((user, cb) => {
+  cb(null, user);
 });
 
 // //analysis route handler
@@ -200,7 +200,7 @@ app.get("/analysis", isAuthenticated, (req, res) => {
 
 app.post("/analysis/data", isAuthenticated, async (req, res) => {
   try {
-    const response = await axios.post("http://localhost:5001/predict_category_forecasts");
+    const response = await axios.post("http://127.0.0.1:5001/predict_category_forecasts");
     res.json(response.data);
   } catch (err) {
     console.error("ML service error:", err.message);

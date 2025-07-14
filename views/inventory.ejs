@@ -62,7 +62,7 @@
 
   .inventory-card h2 {
     font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     color: var(--text-color, #111);
   }
 
@@ -70,20 +70,21 @@
     font-size: 0.95rem;
     color: var(--text-color, #333);
     margin-bottom: 0.3rem;
+    margin-top: 0.2rem;
   }
 
   .progress-bar-container {
     background-color: #ddd;
     height: 10px;
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 30px;
   }
 
   .progress-bar-fill {
-    height: 100%;
-    border-radius: 5px;
-    background-color: #28a745;
-    transition: width 0.8s ease;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: width 0.8s ease;
   }
 
   /* === Skeleton Loader === */
@@ -126,6 +127,10 @@
     border-radius: 3px;
   }
 
+  .title {
+    padding-bottom: 2.5rem;
+  }
+
   @keyframes shimmer {
     0% { background-position: -1000px 0; }
     100% { background-position: 1000px 0; }
@@ -159,10 +164,21 @@
   }
 }
 
+.gradient-fill {
+  height: 100%;
+  background: linear-gradient(to right, red, yellow, green);
+  border-radius: 5px;
+}
+
 </style>
 
 <!-- ==== Script ==== -->
 <script>
+  function getBarColor(percent) {
+    if (percent < 40) return "#dc3545"; // red
+    if (percent < 70) return "#ffc107"; // yellow
+    return "#28a745"; // green
+  }
   document.addEventListener("DOMContentLoaded", async () => {
     try {
       const res = await fetch("/inventory/data", {
@@ -208,7 +224,7 @@
       <p><strong>Forecasted Demand (7 days):</strong> ${info.forecast}</p>
       <p><strong>Restock Needed:</strong> ${info.restock_needed}</p>
       <div class="progress-bar-container">
-        <div class="progress-bar-fill" style="width: ${info.percent_remaining}%; background-color: ${color};"></div>
+      <div class="progress-bar-fill" style="width: ${info.percent_remaining}%; background-color: ${getBarColor(info.percent_remaining)};"></div>
       </div>
       <p style="font-size: 0.85rem; margin-top: 5px;">${info.percent_remaining}% inventory coverage</p>
     </div>
