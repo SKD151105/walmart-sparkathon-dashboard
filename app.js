@@ -181,13 +181,25 @@ passport.deserializeUser((user,cb)=>{
 app.get("/analysis", isAuthenticated, async (req, res) => {
   try {
     const response = await axios.post("http://localhost:5001/predict_category_forecasts");
-    const forecastImages = response.data;
-    res.render("analysis", { forecasts: forecastImages });
+    const allForecasts = response.data;
+
+    const forecastTotal = allForecasts.total;
+    const categoryForecasts = allForecasts.categories;
+
+    res.render("analysis", {
+      forecastTotal,
+      categoryForecasts,
+    });
   } catch (err) {
     console.error("ML service error:", err.message);
-    res.render("analysis", { forecasts: null });
+    res.render("analysis", {
+      forecastTotal: null,
+      categoryForecasts: null,
+    });
   }
 });
+
+
 
 
 app.listen(port, () => {
