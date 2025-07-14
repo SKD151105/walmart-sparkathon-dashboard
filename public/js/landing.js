@@ -46,27 +46,27 @@ signupCta.addEventListener('click', () => {
     document.querySelector('.signup').style.display = 'flex';
 });
 
-// THEME TOGGLING  
-const toggleBtn = document.getElementById("theme-toggle");
-const html = document.documentElement;
+// // THEME TOGGLING  
+// const toggleBtn = document.getElementById("theme-toggle");
+// const html = document.documentElement;
 
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) html.setAttribute("data-theme", savedTheme);
+// const savedTheme = localStorage.getItem("theme");
+// if (savedTheme) html.setAttribute("data-theme", savedTheme);
 
-toggleBtn.addEventListener("click", () => {
-    const currentTheme = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    html.setAttribute("data-theme", currentTheme);
-    localStorage.setItem("theme", currentTheme);
+// toggleBtn.addEventListener("click", () => {
+//     const currentTheme = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+//     html.setAttribute("data-theme", currentTheme);
+//     localStorage.setItem("theme", currentTheme);
 
-    toggleBtn.innerHTML = currentTheme === "dark"
-        ? `<i class="fas fa-sun"></i>`
-        : `<i class="fas fa-moon"></i>`;
-});
+//     toggleBtn.innerHTML = currentTheme === "dark"
+//         ? `<i class="fas fa-sun"></i>`
+//         : `<i class="fas fa-moon"></i>`;
+// });
 
-const current = html.getAttribute("data-theme") || "light";
-toggleBtn.innerHTML = current === "dark"
-    ? `<i class="fas fa-sun"></i>`
-    : `<i class="fas fa-moon"></i>`;
+// const current = html.getAttribute("data-theme") || "light";
+// toggleBtn.innerHTML = current === "dark"
+//     ? `<i class="fas fa-sun"></i>`
+//     : `<i class="fas fa-moon"></i>`;
 
 // FORM VALIDATION FOR SIGNUP
 const signupForm = document.querySelector('.signup-form');
@@ -162,3 +162,18 @@ loginForm.addEventListener('submit', function (e) {
         loginForm.submit();
     }
 });
+
+window.onload = () => {
+    if (window.location.hash) {
+        history.replaceState(null, null, ' ');
+        window.scrollTo(0, 0);
+    }
+
+    const heroLoginBtn = document.getElementById("hero-login");
+    if (heroLoginBtn) {
+        heroLoginBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            loginOverlay.style.display = "flex";
+        });
+    }
+};
