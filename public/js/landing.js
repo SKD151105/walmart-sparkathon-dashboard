@@ -65,3 +65,37 @@ document.querySelectorAll('.faq-question').forEach(question => {
     });
 });
 
+window.addEventListener("DOMContentLoaded", () => {
+    const loginOverlay = document.querySelector('.login-overlay');
+    const loginBtn = document.getElementById('login');
+    const adminLoginLink = document.getElementById('admin-login-link');
+    const signupCta = document.querySelector('.btn-signup-cta');
+
+    // Intercept anchor click
+    adminLoginLink.addEventListener('click', (e) => {
+        e.preventDefault(); // prevent jump to #admin-login
+        loginOverlay.style.display = 'flex';
+    });
+
+    loginBtn.addEventListener('click', () => {
+        loginOverlay.style.display = 'flex';
+    });
+
+    loginOverlay.addEventListener('click', e => {
+        if (!e.target.closest('.login-container')) {
+            loginOverlay.style.display = 'none';
+        }
+    });
+
+    signupCta.addEventListener('click', () => {
+        loginOverlay.style.display = 'none';
+        document.querySelector('.signup').style.display = 'flex';
+    });
+});
+
+window.addEventListener('load', () => {
+    if (window.location.hash === '#admin-login') {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+        window.scrollTo(0, 0); // reset scroll
+    }
+});

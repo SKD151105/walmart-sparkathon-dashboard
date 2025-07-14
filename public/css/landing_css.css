@@ -666,7 +666,7 @@ header {
 }
 
 .feature:hover {
-    box-shadow: 0 0 8px rgba(195, 185, 0, 0.355);
+    box-shadow: 0 0 8px rgba(195, 159, 0, 0.412);
 }
 
 .benefit h3 {
@@ -906,4 +906,79 @@ video {
     font-size: 2rem;
     color: var(--dark-color);
     margin-bottom: 2rem;
+}
+
+.nav-logout {
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    transition: all .3s ease;
+}
+
+.nav-dash {
+    background-color: var(--violet-color);
+    color: var(--white-color);
+    transition: all .3s ease;
+}
+
+.nav-logout:hover {
+    color: var(--l-violet-color);
+    text-shadow: #b488ff 0px 0px 5px;
+}
+
+.nav-dash:hover {
+    background-color: var(--l-violet-color);
+    box-shadow: 0 0 8px rgba(140, 0, 255, 0.568);
+}
+
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.footer-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--gold-color);
+}
+
+.footer-content p {
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 0.5rem auto 1.5rem;
+    color: #ccc;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    margin: 0 1rem;
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--gold-color);
+}
+
+.footer-socials a {
+    margin: 0 0.5rem;
+    color: #ccc;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: var(--gold-color);
+}
+
+.footer-copy {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 1.5rem;
 }
