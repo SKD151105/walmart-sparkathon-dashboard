@@ -1,0 +1,64 @@
+:root {
+  --bg-color: #F9FAFB;
+  --container-color: #FFFFFF;
+  --text-color: #1F2937;
+  --text-muted: #6B7280;
+  --accent-color: #3B82F6;
+  --imp-button-color: #238636; 
+  --border-color: #E5E7EB;
+  --shadow: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+  --bg-color: #0b0f1a;             
+  --container-color: #161b22;      
+  --text-color: #e6edf3;            
+  --text-muted: #8b949e;            
+  --accent-color: #414aff;   
+  --imp-button-color: #238636;       
+  --border-color: #3f464d;         
+  --shadow: rgba(0, 0, 0, 0.6);     
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 1rem 1.5rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  /* margin-bottom: 2rem; */
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 0.1rem; Space between icon and text */
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  /* display: inline-block; */
+  /* position: relative; */
+}
+
+button:hover {
+  background-color: #003ec4; /* darker shade of blue */
+}
+

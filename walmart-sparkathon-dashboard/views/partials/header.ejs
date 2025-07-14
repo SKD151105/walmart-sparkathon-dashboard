@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartRetail | AI-Powered Inventory Optimization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/landing_css.css">
+</head>
+
+<body>
+    <header>
+        <% if (!login) { %>
+            <nav class="navbar">
+                <div class="navbar-brand">SmartRetail</div>
+                <div class="navbar-links">
+                    <button id="theme-toggle" class="nav-btn theme-toggle" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="signup" class="nav-btn s-btn">Sign Up</button>
+                    <button id="login" class="nav-btn l-btn">Login</button>
+                </div>
+            </nav>
+            <% } else { %>
+                <nav class="navbar">
+                    <div class="navbar-brand">SmartRetail</div>
+                    <div class="navbar-links">
+                        <button id="theme-toggle" class="nav-btn theme-toggle" title="Toggle Theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button onclick="location.href='/logout'" class="nav-btn nav-logout s-btn">Log Out</button>
+                        <button onclick="location.href='/dash'" class="nav-btn l-btn">DashBoard</button>
+                    </div>
+                </nav>
+                <% } %>
+    </header>
+
+</html>
