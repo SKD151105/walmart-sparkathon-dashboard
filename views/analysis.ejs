@@ -7,28 +7,112 @@
   <main style="padding: 2rem;">
     <h1 class="title" style="margin-bottom: 2rem;">Sales Forecast Analysis</h1>
 
-    <% if (forecastTotal) { %>
-      <div style="margin-bottom: 3rem; padding: 1rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-        <h2 style="margin-bottom: 1rem; font-size: 1.5rem;">Total Sales</h2>
-        <img src="data:image/png;base64,<%= forecastTotal %>"
-             alt="Total Sales Forecast"
-             style="width: 100%; max-width: 1000px; border-radius: 8px;" />
+    <!-- Forecast Section -->
+    <div id="forecast-section" style="min-height: 400px; position: relative;">
+      <!-- Centered Loader -->
+      <div id="loader" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+        <div class="spinner"></div>
+        <p style="margin-top: 1rem;">Loading forecast charts...</p>
       </div>
-    <% } %>
-
-    <% if (categoryForecasts && Object.keys(categoryForecasts).length > 0) { %>
-      <% for (let category in categoryForecasts) { %>
-        <div style="margin-bottom: 3rem; padding: 1rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <h2 style="margin-bottom: 1rem; font-size: 1.5rem;"><%= category %></h2>
-          <img src="data:image/png;base64,<%= categoryForecasts[category] %>"
-               alt="<%= category %> Forecast"
-               style="width: 100%; max-width: 1000px; border-radius: 8px;" />
-        </div>
-      <% } %>
-    <% } else { %>
-      <p style="color: gray;">Category-wise forecast images not available.</p>
-    <% } %>
+    </div>
   </main>
 </section>
 
 <%- include('partials/dashFooter.ejs'); -%>
+
+<!-- Theme & UI Styles -->
+<style>
+  :root {
+    --card-bg: #ffffff;
+    --card-text: #000000;
+  }
+
+  [data-theme="dark"] {
+    --card-bg: #1e1e1e;
+    --card-text: #ffffff;
+  }
+
+  .forecast-block {
+    margin-bottom: 3rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    color: var(--card-text);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #ccc;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+
+<!-- Chart Fetch + Render Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const forecastSection = document.getElementById("forecast-section");
+    const loader = document.getElementById("loader");
+
+    try {
+      const res = await fetch("/analysis/data", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await res.json();
+
+      if (data.error) throw new Error(data.error);
+
+      // Clear loader
+      loader.remove();
+
+      // Render Total Sales Chart
+      if (data.total) {
+        forecastSection.innerHTML += `
+          <div class="forecast-block">
+            <h2 style="margin-bottom: 1rem; font-size: 1.5rem;">Total Sales</h2>
+            <img src="data:image/png;base64,${data.total}"
+                 alt="Total Sales Forecast"
+                 style="width: 100%; max-width: 1000px; border-radius: 8px;" />
+          </div>
+        `;
+      }
+
+      // Render Category-wise Charts
+      if (data.categories && Object.keys(data.categories).length > 0) {
+        for (const [category, image] of Object.entries(data.categories)) {
+          forecastSection.innerHTML += `
+            <div class="forecast-block">
+              <h2 style="margin-bottom: 1rem; font-size: 1.5rem;">${category}</h2>
+              <img src="data:image/png;base64,${image}"
+                   alt="${category} Forecast"
+                   style="width: 100%; max-width: 1000px; border-radius: 8px;" />
+            </div>
+          `;
+        }
+      }
+
+    } catch (err) {
+      loader.remove();
+      forecastSection.innerHTML = `<p style="color: red;">Error loading charts: ${err.message}</p>`;
+    }
+  });
+</script>
