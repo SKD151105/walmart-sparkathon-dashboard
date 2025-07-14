@@ -673,6 +673,7 @@ header {
 .benefit h3 {
     font-size: 1.4rem;
     color: rgb(247, 184, 26);
+    text-shadow: 0 0 1px orangered;
     /* position: absolute;
     top: 1rem;
     left: 1rem; */
@@ -687,6 +688,7 @@ header {
 .feature h3 {
     font-size: 1.4rem;
     color: rgb(177, 26, 247);
+    text-shadow: 0 0 1px rgb(0, 0, 0);
     /* position: absolute;
     top: 1rem;
     left: 1rem; */
