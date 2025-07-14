@@ -69,9 +69,24 @@ app.get("/dash", (req,res)=>{
   }
 })
 
-app.get("/inventory",(req,res)=>{
+// GET inventory page
+app.get("/inventory", isAuthenticated, (req, res) => {
   res.render("inventory");
-})
+});
+
+// POST route to get inventory data from Flask
+// POST route to get inventory data from Flask
+app.post("/inventory/data", async (req, res) => {
+  try {
+    const response = await axios.post("http://localhost:5002/inventory_status"); // ✅ Corrected endpoint
+    res.json(response.data);
+  } catch (err) {
+    console.error("Inventory ML service error:", err.message);
+    res.json({ error: err.message });
+  }
+});
+
+
 
 app.post("/register",async (req,res)=>{
   const name = req.body.name;
@@ -178,26 +193,21 @@ passport.deserializeUser((user,cb)=>{
 //   res.render("analysis");
 // })
 
-app.get("/analysis", isAuthenticated, async (req, res) => {
+app.get("/analysis", isAuthenticated, (req, res) => {
+  // Loads sidebar, nav, and loader immediately
+  res.render("analysis");
+});
+
+app.post("/analysis/data", isAuthenticated, async (req, res) => {
   try {
     const response = await axios.post("http://localhost:5001/predict_category_forecasts");
-    const allForecasts = response.data;
-
-    const forecastTotal = allForecasts.total;
-    const categoryForecasts = allForecasts.categories;
-
-    res.render("analysis", {
-      forecastTotal,
-      categoryForecasts,
-    });
+    res.json(response.data);
   } catch (err) {
     console.error("ML service error:", err.message);
-    res.render("analysis", {
-      forecastTotal: null,
-      categoryForecasts: null,
-    });
+    res.status(500).json({ error: "Failed to fetch forecasts." });
   }
 });
+
 
 
 
