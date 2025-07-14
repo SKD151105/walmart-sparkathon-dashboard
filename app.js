@@ -231,6 +231,24 @@ app.get("/charts", isAuthenticated, async (req, res) => {
   }
 });
 
+app.get("/table", isAuthenticated, async (req, res) => {
+  try {
+    const response = await axios.post("http://localhost:5004/generate_charts");
+    const charts = response.data;
+    const tableImage = charts.tableImage;
+
+    res.render("table", {
+      tableImage
+    });
+
+  } catch (err) {
+    console.error("table generation error:", err.message);
+    res.render("table", {
+      tableImage: null
+    });
+  }
+});
+
 
 
 app.listen(port, () => {
