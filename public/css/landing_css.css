@@ -651,7 +651,7 @@ header {
     margin: 1rem 1rem;
     border: 2px solid var(--shadow-color);
     background-position: center;
-    border-radius: 10px;
+    border-radius: 1.5rem;
     position: relative;
     transition: all .3s ease;
     padding: 0.5rem 2rem;
@@ -659,14 +659,15 @@ header {
     overflow: hidden;
     min-width: 200px;
     max-width: 250px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.245);
 }
 
 .benefit:hover {
-    box-shadow: 0 0 8px rgba(140, 0, 255, 0.355);
+    box-shadow: 0 0 16px rgba(140, 0, 255, 0.355);
 }
 
 .feature:hover {
-    box-shadow: 0 0 8px rgba(195, 159, 0, 0.412);
+    box-shadow: 0 0 16px rgba(195, 159, 0, 0.412);
 }
 
 .benefit h3 {
@@ -781,7 +782,7 @@ header {
     margin: 1rem 1rem;
     border: 2px solid var(--shadow-color);
     background-position: center;
-    border-radius: 10px;
+    border-radius: 1.5rem;
     position: relative;
     transition: all .3s ease;
     padding: 0.5rem 2rem;
@@ -789,6 +790,7 @@ header {
     overflow: hidden;
     min-width: 200px;
     max-width: 250px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.245);
 }
 
 .faq {
