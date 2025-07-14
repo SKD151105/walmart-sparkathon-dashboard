@@ -208,7 +208,28 @@ app.post("/analysis/data", isAuthenticated, async (req, res) => {
   }
 });
 
+app.get("/charts", isAuthenticated, async (req, res) => {
+  try {
+    const response = await axios.post("http://localhost:5003/generate_charts");
+    const charts = response.data;
+    console.log(charts);
 
+    const barChart = charts.barChart;
+    const pieChart = charts.pieChart;
+
+    res.render("charts", {
+      barChart,
+      pieChart
+    });
+
+  } catch (err) {
+    console.error("Chart generation error:", err.message);
+    res.render("charts", {
+      barChart: null,
+      pieChart: null
+    });
+  }
+});
 
 
 
