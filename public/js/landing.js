@@ -38,23 +38,30 @@ signupCta.addEventListener('click', () => {
     document.querySelector('.signup').style.display = 'flex';
 });
 
-const toggleBtn = document.getElementById("theme-toggle");
-const html = document.documentElement;
+// const toggleBtn = document.getElementById("theme-toggle");
+// const html = document.documentElement;
 
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) html.setAttribute("data-theme", savedTheme);
+// const savedTheme = localStorage.getItem("theme");
+// if (savedTheme) html.setAttribute("data-theme", savedTheme);
 
-toggleBtn.addEventListener("click", () => {
-    const currentTheme = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    html.setAttribute("data-theme", currentTheme);
-    localStorage.setItem("theme", currentTheme);
+// toggleBtn.addEventListener("click", () => {
+//     const currentTheme = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+//     html.setAttribute("data-theme", currentTheme);
+//     localStorage.setItem("theme", currentTheme);
 
-    toggleBtn.innerHTML = currentTheme === "dark"
-        ? `<i class="fas fa-sun"></i>`
-        : `<i class="fas fa-moon"></i>`;
+//     toggleBtn.innerHTML = currentTheme === "dark"
+//         ? `<i class="fas fa-sun"></i>`
+//         : `<i class="fas fa-moon"></i>`;
+// });
+
+// const current = html.getAttribute("data-theme") || "light";
+// toggleBtn.innerHTML = current === "dark"
+//     ? `<i class="fas fa-sun"></i>`
+//     : `<i class="fas fa-moon"></i>`;
+
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', function () {
+        this.parentElement.classList.toggle('open');
+    });
 });
 
-const current = html.getAttribute("data-theme") || "light";
-toggleBtn.innerHTML = current === "dark"
-    ? `<i class="fas fa-sun"></i>`
-    : `<i class="fas fa-moon"></i>`;
