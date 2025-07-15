@@ -6,6 +6,19 @@ Built for the **Walmart Sparkathon 2025**, this project leverages the power of m
 
 ---
 
+## 🎯 Goal & Problem Statement
+
+Traditional inventory systems are often reactive and unable to account for external variables such as holidays or seasonal trends. Our goal with SmartRetail is to **reimagine the retail supply chain** by:
+
+- Forecasting demand accurately using AI
+- Visualizing critical sales and inventory KPIs in one place
+- Making the system secure, scalable, and easy to use
+- Helping managers take **proactive** actions based on data
+
+> 🧠 Example: If the model predicts a spike in sales for "Dairy Products" next week due to a festival, the dashboard will suggest timely restocking in advance.
+
+---
+
 ## 🚀 Features
 
 - 🔐 **Secure Login System** for admins (with approved Walmart IDs)
